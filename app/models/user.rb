@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	
 	validates_confirmation_of :password
 	validates_length_of :bio, minimum: 30, allow_blank: false
-	vlaidates_uniqueness_of :email
+	validates_uniqueness_of :email
 
 	validate do
 		errors.add(:email, :invalid) unless email.match(EMAIL_REGEXP)
