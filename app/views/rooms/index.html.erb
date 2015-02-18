@@ -18,7 +18,7 @@
         <td><%= room.description %></td>
         <td><%= link_to t('.show'), room %></td>
         <td><%= link_to t('.edit'), edit_room_path(room) %></td>
-        <td><%= link_to t('.destroy'), room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('.destroy'), room, method: :delete, data: { confirm: 'Deseja realmente deletar o quarto ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +26,5 @@
 
 <br>
 
-<%= link_to 'Novo Quarto', new_room_path %>
-<%= link_to 'voltar', root_path %>
+<%= link_to t('.new'), new_room_path %>
+<%= link_to t('links.back'), root_path %>

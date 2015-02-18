@@ -1,4 +1,7 @@
 pt-BR:
+  home:
+    index:
+      title: Quartos recém postados
   rooms:
     index:
       title: Listando Quartos
@@ -8,11 +11,17 @@ pt-BR:
       show: Mostrar
       edit: Editar
       destroy: Deletar
+      new: Novo Quarto
     new:
       title: Cadastro
     show:
       title: "Quarto: %{room_name}"
-      edit: Editar quarto      
+      location: "Localização: %{location_name}"
+      description: "Descrição: %{description_name}"
+      edit: Editar quarto
+    edit:
+      title: Editar Quarto
+      show: Mostrar        
   users:
     new:
       title: Cadastro
@@ -31,6 +40,7 @@ pt-BR:
   activerecord:
     models:
       user: Usuário
+      room: Quarto
     attributes:
       user:
         bio: Biografia
