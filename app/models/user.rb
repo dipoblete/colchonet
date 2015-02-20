@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
-	
-	EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-	
-	validates_presence_of :email, :full_name, :location
-	validates_length_of :bio, minimum: 10, allow_blank: false
-	validates_uniqueness_of :email
-	validates_format_of :email, with: EMAIL_REGEXP
 
-	has_secure_password
+  EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+
+  validates_presence_of :email, :full_name, :location
+  validates_length_of :bio, minimum: 10, allow_blank: false
+  validates_uniqueness_of :email
+  validates_format_of :email, with: EMAIL_REGEXP
+
+  has_secure_password
+
+  before_create do |user|
+    user.confirmation_token = SecureRandom.urlsafe_base64
+  end
 end
