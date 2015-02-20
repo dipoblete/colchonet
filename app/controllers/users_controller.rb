@@ -6,16 +6,19 @@ class UsersController <  ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
+      Signup.confirm_email(@user).deliver
+
       redirect_to @user,
           notice: 'cadastro realizado com sucesso!'
     else
       render action: :new
-    end  
+    end
   end
 
   def show
     @user = User.find(params[:id])
-  end 
+  end
 
   def edit
     @user = User.find(params[:id])
