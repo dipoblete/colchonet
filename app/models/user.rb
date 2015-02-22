@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
   def confirmed?
     confirmed_at.present?
   end
+
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
+  def self.authenticate(email, password)
+    user = confirmed.
+            find_by(email: email).
+            try(:authenticate, password)
+  end
 end
