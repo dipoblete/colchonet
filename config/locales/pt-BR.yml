@@ -53,6 +53,7 @@ pt-BR:
   layout:
     rooms: Quartos
     signup: Cadastro
+    signin: Login
   activerecord:
     models:
       user: Usuário
