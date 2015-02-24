@@ -29,9 +29,9 @@ class RoomsController < ApplicationController
   end
 
   def update
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
 
-    if @room.update(params[:room])
+    if @room.update(room_params)
         redirect_to @room, notice: t('flash.notice.room_updated.')
       else
         render action: "edit"
@@ -43,5 +43,13 @@ class RoomsController < ApplicationController
     @room.destroy
 
     redirect_to rooms_url
+  end
+
+  private
+
+  def room_params
+    params.
+      require(:room).
+      permit(:title, :location, :descriptions)
   end
 end
