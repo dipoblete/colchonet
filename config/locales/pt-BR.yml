@@ -52,13 +52,9 @@ pt-BR:
     back: Voltar
   layout:
     rooms: Quartos
-    new_room: Cadastre seu Quarto!
     signup: Cadastro
     signin: Login
-<<<<<<< HEAD
-=======
     new_room: Cadastre seu Quarto!
->>>>>>> e664065b7926bdf8af08349f2bd062f126147074
     my_profile: Meu Perfil
     signout: Logout
   activerecord:
