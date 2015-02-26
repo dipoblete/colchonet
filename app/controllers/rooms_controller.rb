@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(params[:room])
+    @room = current_user.rooms.build(room_params)
 
       if @room.save
          redirect_to @room, notice: t('flash.notice.room_created')
@@ -50,6 +50,6 @@ class RoomsController < ApplicationController
   def room_params
     params.
       require(:room).
-      permit(:title, :location, :descriptions)
+      permit(:title, :location, :description)
   end
 end
